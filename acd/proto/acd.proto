@@ -1,0 +1,18 @@
+syntax = "proto3";
+option go_package="./proto;pb";
+package pb;
+
+message RequestAgentState {
+    string AppId = 1;
+    string AgentId = 2;
+}
+
+message ResponseAgentState {
+    string AppId = 1;
+    string AgentId = 2;
+    uint32 State = 3;
+}
+
+service ACDService {
+    rpc AgentState(RequestAgentState) returns (ResponseAgentState);
+}
